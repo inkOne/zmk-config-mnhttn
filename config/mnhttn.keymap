@@ -6,14 +6,12 @@
 #include "keys_de.h"
 
 #define BASE 0
-#define BASELIN 1 
-#define COL  2
-#define SYM 3
-#define SYMLIN  4
-#define NAV  5
-#define NUM  6
-#define ADJ  7
-#define MET  8
+#define COL  1
+#define SYM 2
+#define NAV  3
+#define NUM  4
+#define ADJ  5
+#define MET  6
 
 / {
     chosen {
@@ -111,28 +109,20 @@
         base_layer {
             label= "BASE";
             bindings = <
-                        &kp X         &kp J         &kp O         &kp V         &kp Z               &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
+                        &kp X         &kp J         &kp O         &kp V         &kp Z               &kp DE_CAPITAL_SZ       &kp G           &kp C           &kp L        &kp Y         
                         &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
-                        &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
+                        &kp K         &kp Q         &kp DE_A_UMLAUT       &kp DE_U_UMLAUT      &kp DE_O_UMLAUT            &kp B           &kp P            &kp W          &kp M        &kp F      
                                                 &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
                                                 
             >;
         };
-        baselin_layer {
-            label= "BASELIN";
-            bindings = <
-                        &kp X         &kp J         &kp O         &kp V         &kp Z               &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
-                        &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
-                        &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
-                                            &kp TAB       &lt SYMLIN SPACE     &trans               &trans          &lt NAV RET     &lt MET BSPC
-            >;
-        };
+      
         colemakdh_layer {
             label= "COL";
             bindings = <
                     &kp Q        &kp W          &kp F        &kp P          &kp B              &kp J          &kp L        &kp U         &kp Y        &kp LS(COMMA)
                     &am LCTRL A   &am LGUI R    &am LALT S    &as LSHFT T   &kp G              &kp M          &as RSHFT N   &am RALT E   &am RGUI I    &am RCTRL O   
-                    &kp Z         &kp X          &kp C          &kp D        &kp V             &kp K          &kp H       &kp COMMA    &kp PERIOD     &kp LS(N7)
+                    &kp Z         &kp X          &kp C          &kp D        &kp V             &kp K          &kp H       &kp DE_COMMA    &kp DE_DOT     &kp DE_FSLH
                                             &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
             >;
         };
@@ -140,23 +130,14 @@
         sim_layer {
             label= "SYM";
             bindings = <
-                     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp LS(N8)     &kp LPAR     &kp RPAR       
-                        &trans        &trans        &kp COMMA        &kp DOT     &kp FSLH            &kp KP_MULTIPLY &kp NON_US_HASH &kp LA(N5) &kp LA(N6)  &kp GRAVE      
-                        &trans        &trans        &kp LS(COMMA)     &kp LS(DOT)                &trans            &kp PIPE      &kp PLUS      &kp LA(N8)    &kp LA(N9)    &kp RBKT      
+                    &kp DE_EXCL     &kp DE_DQT     &kp DE_SECT        &kp DE_DLLR        &kp DE_PRCNT         &kp DE_AMPS        &kp DE_FSLH       &kp DE_LPAR     &kp DE_RPAR    &kp DE_EQAL       
+                    &kp DE_CARET       &kp DE_PIPE     &kp DE_COMMA       &kp DE_DOT         &kp DE_MINUS          &kp DE_ASTRK  &kp DE_HASH  &kp DE_LBRC     &kp DE_RBRC  &kp DE_LT      
+                    &trans       &trans     &kp LS(DE_COMMA)   &kp LS(DE_DOT)     &trans            &kp DE_APOS         &kp DE_GRAVE         &kp DE_LBKT     &kp DE_RBKT  &kp DE_PLUS      
                                             &trans         &trans   &trans            &trans           &trans      &trans
             >;
         };
 
-        simlin_layer {
-            label= "SYMLIN";
-            bindings = <
-                    &kp EXCL     &kp AT     &kp HASH        &kp DLLR        &kp PRCNT         &kp CARET        &kp AMPS         &kp DE_LPAR     &kp DE_RPAR    &kp RPAR       
-                    &trans       &trans     &kp COMMA       &kp DOT         &kp FSLH          &kp KP_MULTIPLY  &kp NON_US_HASH  &kp DE_LBRC     &kp DE_RBRC  &kp GRAVE      
-                    &trans       &trans     &kp LS(COMMA)   &kp LS(DOT)     &trans            &kp PIPE         &kp PLUS         &kp DE_LBKT     &kp DE_RBKT  &kp RBKT  
-                                               &trans         &trans   &trans            &trans           &trans      &trans
-            >;
-        };
-
+  
         nav_layer {
             label= "NAV";
 	          bindings = <
@@ -180,10 +161,10 @@
         adjust_layer {
             label= "ADJ";
 	          bindings = <
-                &sys_reset      &bt BT_CLR_ALL  &out OUT_TOG    &trans          &tog COL              &trans            &kp C_BRI_DN  &kp C_BRI_UP      &trans        &trans   
-                &bootloader     &bt BT_NXT      &trans          &trans          &tog BASELIN         &kp C_PREV       &kp C_PP      &kp C_NEXT  &trans        &trans   
-                &trans          &bt BT_PRV      &trans          &trans          &trans                 &kp C_MUTE       &kp C_VOL_DN &kp C_VOL_UP    &trans        &trans    
-                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+                &sys_reset      &bt BT_CLR_ALL  &out OUT_TOG    &trans          &tog COL              &trans           &kp C_BRI_DN  &kp C_BRI_UP      &trans        &trans   
+                &bootloader     &bt BT_NXT      &trans          &trans          &trans                &kp C_PREV       &kp C_PP      &kp C_NEXT         &trans        &trans   
+                &trans          &bt BT_PRV      &trans          &trans          &trans                &kp C_MUTE       &kp C_VOL_DN  &kp C_VOL_UP        &trans        &trans    
+                                                &kp TAB       &lt SYM SPACE     &trans                &trans        &lt NAV RET     &lt MET BSPC
             >;
         };
          metall_layer {
