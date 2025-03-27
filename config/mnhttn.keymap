@@ -25,7 +25,47 @@
     };
 
     behaviors {
+  rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
 
+        am: alpha_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_MT";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+        as: alpha_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_SFT";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Easy alt-tab with alt+backspace thumb using mod-morphs
+        bstab: backspace_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_TAB";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp TAB>;
+            mods = <LALT>;
+        };
+        lt_bspc: layer_tap_backspace_tab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_BT";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&mo>, <&bstab>;
+        };
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
