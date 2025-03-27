@@ -131,12 +131,12 @@
             label= "SYM";
             bindings = <
                     &kp DE_EXCL     &kp DE_DQT     &kp DE_SECT        &kp DE_DLLR        &kp DE_PRCNT         &kp DE_AMPS        &kp DE_FSLH       &kp DE_LPAR     &kp DE_RPAR    &kp DE_EQUAL       
-                    &kp DE_CARET       &kp DE_PIPE     &kp DE_COMMA       &kp DE_DOT         &kp DE_MINUS          &kp DE_ASTRK  &kp DE_HASH  &kp DE_LBRC     &kp DE_RBRC  &kp DE_LT      
-                    &trans       &trans     &kp LS(DE_COMMA)   &kp LS(DE_DOT)     &trans            &kp DE_APOS         &kp DE_GRAVE         &kp DE_LBKT     &kp DE_RBKT  &kp DE_PLUS      
+                    &kp DE_CARET       &kp DE_PIPE     &kp DE_COMMA       &kp DE_DOT         &kp DE_MINUS          &kp DE_ASTRK  &kp DE_HASH  &kp LA(N5) &kp LA(N6)  &kp GRAVE
+                    &kp DE_LBRC     &kp DE_RBRC     &kp LS(DE_COMMA)   &kp LS(DE_DOT)     &kp DE_LT            &kp DE_APOS         &kp DE_GRAVE         &kp DE_LBKT     &kp DE_RBKT  &kp DE_PLUS      
                                             &trans         &trans   &trans            &trans           &trans      &trans
             >;
         };
-
+       
   
         nav_layer {
             label= "NAV";
