@@ -25,14 +25,7 @@
     };
 
     behaviors {
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
+
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
