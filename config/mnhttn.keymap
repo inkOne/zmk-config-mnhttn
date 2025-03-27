@@ -96,25 +96,20 @@
                         &kp X         &kp J         &kp O         &kp V         &kp Z               &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
                         &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
                         &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
-                                                &kp TAB       &lt SYMLIN SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+                                            &kp TAB       &lt SYMLIN SPACE     &trans               &trans          &lt NAV RET     &lt MET BSPC
             >;
         };
         colemakdh_layer {
             label= "COL";
             bindings = <
-                        &kp Q        &kp W          &kp F        &kp P          &kp B              &kp J          &kp L        &kp U         &kp Y        &kp LS(COMMA)
-                        &am LCTRL A   &am LGUI R    &am LALT S    &as LSHFT T   &kp G              &kp M          &as RSHFT N   &am RALT E   &am RGUI I    &am RCTRL O   
-                        &kp Z         &kp X          &kp C          &kp D        &kp V             &kp K          &kp H       &kp COMMA    &kp PERIOD     &kp LS(N7)
-                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+                    &kp Q        &kp W          &kp F        &kp P          &kp B              &kp J          &kp L        &kp U         &kp Y        &kp LS(COMMA)
+                    &am LCTRL A   &am LGUI R    &am LALT S    &as LSHFT T   &kp G              &kp M          &as RSHFT N   &am RALT E   &am RGUI I    &am RCTRL O   
+                    &kp Z         &kp X          &kp C          &kp D        &kp V             &kp K          &kp H       &kp COMMA    &kp PERIOD     &kp LS(N7)
+                                            &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
             >;
         };
 
         sim_layer {
-            // -----------------------------------------------------------------------------------------
-            //  |  !  |  "  |  §  |  $  |  %  |   |  & |  /  |  (  |  )  |  =  |   
-            //  |     |     |     |     |     |   |  * |  #  |  [  |  ]   |  <  |  
-            //  |     |     |     |     |     |   | '  |  `  |  {  |  }   |  +  | 
-            //         TAB | SYM / SPC  |            | NAV / ENT | MET / BKSP  
             label= "SYM";
             bindings = <
                     &kp EXCL     &kp AT     &kp HASH        &kp DLLR        &kp PRCNT         &kp CARET        &kp AMPS         &kp DE_LPAR     &kp DE_RPAR    &kp RPAR       
