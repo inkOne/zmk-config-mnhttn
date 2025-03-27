@@ -96,6 +96,7 @@
                         &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
                         &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
                                                 &kp TAB       &lt SYMLIN SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
         };
         colemakdh_layer {
             label= "COL";
