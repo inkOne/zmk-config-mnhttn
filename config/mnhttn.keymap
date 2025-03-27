@@ -1,0 +1,173 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#include "keys_de.h"
+
+#define BASE 
+#define BASELIN 1 
+#define COL  2
+#define SYM 3
+#define SYMLIN  4
+#define NAV  5
+#define NUM  6
+#define ADJ  7
+#define MET  8
+
+/ {
+    chosen {
+      zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+
+    behaviors {
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <100>;
+            bindings = <&kp>, <&kp>;
+        };
+        mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            quick-tap-ms = <100>;
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+        };
+        lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            quick-tap-ms = <100>;
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+        };
+    };
+
+    cond_layers {
+        compatible = "zmk,conditional-layers";
+        // Define ADJ layer as tri-state
+        func_tristate {
+            if-layers = <NAV SYM>;
+            then-layer = <ADJ>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <40>;
+            key-positions = <1 2>;
+            bindings = <&kp ESC>;
+        };
+        combo_dot {
+            timeout-ms = <40>;
+            key-positions = <12 13>;
+            bindings = <&kp DOT>;
+        };
+        combo_comma {
+            timeout-ms = <40>;
+            key-positions = <11 12>;
+            bindings = <&kp COMMA>;
+        };
+        
+
+    keymap {
+        compatible = "zmk,keymap";
+        base_layer {
+            label= "BASE";
+            bindings = <
+                        &kp X         &kp J         &kp O         &kp V         &kp Z               &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
+                        &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
+                        &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+                                                
+            >;
+        };
+        baselin_layer {
+            label= "BASELIN";
+            bindings = <
+                        &kp X         &kp J         &kp O         &kp V         &kp Z               &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
+                        &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
+                        &kp K         &kp Q         &kp SQT       &kp LBKT      &kp SEMI            &kp B           &kp P            &kp W          &kp M        &kp F      
+                                                &kp TAB       &lt SYMLIN SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+        };
+        colemakdh_layer {
+            label= "COL";
+            bindings = <
+                        &kp Q        &kp W          &kp F        &kp P          &kp B              &kp J          &kp L        &kp U         &kp Y        &kp LS(COMMA)
+                        &am LCTRL A   &am LGUI R    &am LALT S    &as LSHFT T   &kp G              &kp M          &as RSHFT N   &am RALT E   &am RGUI I    &am RCTRL O   
+                        &kp Z         &kp X          &kp C          &kp D        &kp V             &kp K          &kp H       &kp COMMA    &kp PERIOD     &kp LS(N7)
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+
+        sim_layer {
+             // -----------------------------------------------------------------------------------------
+            //  |  !  |  "  |  §  |  $  |  %  |   |  & |  /  |  (  |  )  |  =  |   
+            //  |     |     |     |     |     |   |  * |  #  |  [  |  ]   |  <  |  
+            //  |     |     |     |     |     |   | '  |  `  |  {  |  }   |  +  | 
+            //         TAB | SYM / SPC  |            | NAV / ENT | MET / BKSP  
+            label= "SYM";
+            bindings = <
+                    &kp EXCL     &kp AT     &kp HASH        &kp DLLR     &kp PRCNT         &kp CARET       &kp AMPS         &kp DE_LPAR     &kp DE_RPAR    &kp RPAR       
+                    &trans       &trans     &kp COMMA       &kp DOT      &kp FSLH          &kp KP_MULTIPLY &kp NON_US_HASH  &kp DE_LBRC     &kp DE_RBRC  &kp GRAVE      
+                    &trans       &trans     &kp LS(COMMA)   &kp LS(DOT)  &trans            &kp PIPE        &kp PLUS         &kp DE_LBKT     &kp DE_RBKT  &kp RBKT      
+                                            &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+          simlin_layer {
+            label= "SYMLIN";
+            bindings = <
+                &kp DE_EXCL     &kp DE_AT       &kp HASH     &kp DLLR     &kp PRCNT             &kp CARET      &kp AMPS    &kp DE_U_UMLAUT &kp DE_POUND    &kp DE_EQL
+                &kp DE_A_UMLAUT &kp DE_SZ       &kp DE_LPAR     &kp DE_RPAR     &kp DE_PLUS     &kp DE_DQT      &kp DE_EQUAL    &kp DE_DLLR     &kp DE_O_UMLAUT &kp DE_SEMI
+                &kp DE_PIPE     &kp DE_AMPS     &kp DE_LBKT     &kp DE_RBKT     &kp DE_TILDE    &kp DE_PRCNT    &kp DE_LT       &kp DE_GT       &kp DE_QMARK    &kp DE_UNDER
+                                               &kp TAB       &lt SYMLIN SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+
+        nav_layer {
+            label= "NAV";
+	          bindings = <
+                        &kp N1        &kp N2        &kp N3        &kp N4         &kp N5           &kp N6        &kp N7        &kp N8        &kp N9         &kp N0       
+                        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        
+                        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+
+        num_layer {
+            label= "NUM";
+	          bindings = <
+                &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                &kp F6          &kp F7          &kp F8          &kp F9          &kp F10
+                &mt LALT N1     &mt LCTRL N2    &mt LGUI N3     &mt LSHFT N4    &kp N5                &kp N6          &mt RSHFT N7    &mt RGUI N8     &mt RCTRL N9    &mt RALT N0
+                &trans          &trans          &trans          &kp DE_COLON    &kp DE_DOT            &trans          &trans          &trans          &trans          &trans
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+
+        adjust_layer {
+            label= "ADJ";
+	          bindings = <
+                &sys_reset      &bt BT_CLR_ALL  &out OUT_TOG    &trans          &tog COL              &trans            &kp C_BRI_DN  &kp C_BRI_UP      &trans        &trans   
+                &bootloader     &bt BT_NXT      &trans          &trans          &tog BASELIN         &kp C_PREV       &kp C_PP      &kp C_NEXT  &trans        &trans   
+                &trans          &bt BT_PRV      &trans          &trans          &trans                 &kp C_MUTE       &kp C_VOL_DN &kp C_VOL_UP    &trans        &trans    
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
+            >;
+        };
+         metall_layer {
+            label = "MET";
+            bindings = <
+                            &trans        &trans        &trans        &trans        &trans       &trans        &trans        &kp LBKT      &trans        &trans        
+                    &kp SQT        &trans        &kp MINUS        &trans        &trans              &trans        &trans        &trans        &trans        &kp SEMI        
+                        &trans        &trans        &trans        &trans        &trans              &trans        &trans        &trans        &trans        &trans        
+                                                                 &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC 
+            >;
+        };
+    };
+};
