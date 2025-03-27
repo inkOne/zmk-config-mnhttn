@@ -5,7 +5,7 @@
 
 #include "keys_de.h"
 
-#define BASE 
+#define BASE 0
 #define BASELIN 1 
 #define COL  2
 #define SYM 3
@@ -25,11 +25,6 @@
     };
 
     behaviors {
-  rot_kp: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
 
         am: alpha_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -148,7 +143,7 @@
                     &kp EXCL     &kp AT     &kp HASH        &kp DLLR        &kp PRCNT         &kp CARET        &kp AMPS         &kp DE_LPAR     &kp DE_RPAR    &kp RPAR       
                     &trans       &trans     &kp COMMA       &kp DOT         &kp FSLH          &kp KP_MULTIPLY  &kp NON_US_HASH  &kp DE_LBRC     &kp DE_RBRC  &kp GRAVE      
                     &trans       &trans     &kp LS(COMMA)   &kp LS(DOT)     &trans            &kp PIPE         &kp PLUS         &kp DE_LBKT     &kp DE_RBKT  &kp RBKT      
-                                            &kp TAB         &lt SYM SPACE   &trans            &trans           &lt NAV RET      &lt MET BSPC
+                                            &trans         &trans   &trans            &trans           &trans      &trans
             >;
         };
 
@@ -158,7 +153,7 @@
                 &kp DE_EXCL     &kp DE_AT       &kp HASH     &kp DLLR           &kp PRCNT       &kp CARET       &kp AMPS        &kp DE_U_UMLAUT &kp DE_POUND    &kp DE_EQL
                 &kp DE_A_UMLAUT &kp DE_SZ       &kp DE_LPAR     &kp DE_RPAR     &kp DE_PLUS     &kp DE_DQT      &kp DE_EQUAL    &kp DE_DLLR     &kp DE_O_UMLAUT &kp DE_SEMI
                 &kp DE_PIPE     &kp DE_AMPS     &kp DE_LBKT     &kp DE_RBKT     &kp DE_TILDE    &kp DE_PRCNT    &kp DE_LT       &kp DE_GT       &kp DE_QMARK    &kp DE_UNDER
-                                               &kp TAB       &lt SYMLIN SPACE     &trans        &trans          &lt NAV RET     &lt MET BSPC
+                                               &trans         &trans   &trans            &trans           &trans      &trans
             >;
         };
 
@@ -194,10 +189,10 @@
          metall_layer {
             label = "MET";
             bindings = <
-                            &trans        &trans        &trans        &trans        &trans       &trans        &trans        &kp LBKT      &trans        &trans        
-                    &kp SQT        &trans        &kp MINUS        &trans        &trans              &trans        &trans        &trans        &trans        &kp SEMI        
-                        &trans        &trans        &trans        &trans        &trans              &trans        &trans        &trans        &trans        &trans        
-                                                                 &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC 
+                    &trans        &trans        &trans        &trans        &trans       &trans        &trans        &kp LBKT      &trans        &trans        
+                    &kp SQT        &trans        &kp MINUS    &trans        &trans              &trans        &trans        &trans        &trans        &kp SEMI        
+                    &trans        &trans        &trans        &trans        &trans              &trans        &trans        &trans        &trans        &trans        
+                                                &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC 
             >;
         };
     };
