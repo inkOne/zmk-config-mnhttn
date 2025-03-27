@@ -109,7 +109,7 @@
         base_layer {
             label= "BASE";
             bindings = <
-                        &kp X         &kp J         &kp O         &kp V         &kp Z              &kp CARET       &kp G           &kp C           &kp L        &kp Y         
+                        &kp X         &kp J         &kp O         &kp V         &kp Z              &kp MINUS       &kp G           &kp C           &kp L        &kp Y         
                         &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U               &kp D           &as RSHFT T     &am RALT R      &am RGUI N   &am RCTRL S   
                         &kp K         &kp Q         &kp DE_A_UMLAUT       &kp DE_U_UMLAUT      &kp DE_O_UMLAUT            &kp B           &kp P            &kp W          &kp M        &kp F      
                                                 &kp TAB       &lt SYM SPACE     &trans                  &trans  &lt NAV RET     &lt MET BSPC
